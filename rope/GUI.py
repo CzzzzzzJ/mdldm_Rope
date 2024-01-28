@@ -26,7 +26,7 @@ class GUI(tk.Tk):
         super().__init__()
         # Adding a title to the self
         # self.call('tk', 'scaling', 0.5)
-        self.title('Rope-Ruby-03')
+        self.title('Rope-麦当mdldm启动器')
         self.pixel = []
         self.parameters = PARAM_BUTTONS_PARAMS
         self.actions = ACTIONS
@@ -450,9 +450,9 @@ class GUI(tk.Tk):
         self.status_label = tk.Label(self.status_frame, fg="white", bg='grey20')
         self.status_label.grid( row = 0, column = 1, sticky='NEWS')
         
-        self.donate_label = tk.Label(self.status_frame, fg="light goldenrod", bg='grey20', text="Donate! (Paypal)  ", anchor='e')
+        self.donate_label = tk.Label(self.status_frame, fg="light goldenrod", bg='grey20', text="麦当的GPT平台", anchor='e')
         self.donate_label.grid( row = 0, column = 2, sticky='NEWS')
-        self.donate_label.bind("<Button-1>", lambda e: self.callback("https://www.paypal.com/donate/?hosted_button_id=Y5SB9LSXFGRF2"))
+        self.donate_label.bind("<Button-1>", lambda e: self.callback("www.mdldm.love"))
     
     def callback(self, url):
         webbrowser.open_new_tab(url)
@@ -626,11 +626,11 @@ class GUI(tk.Tk):
         self.actions['StartRopeButton'].configure(self.button_highlight_style, text=' Load Rope')
         
         img = Image.open('./rope/media/marker.png')
-        resized_image= img.resize((15,30), Image.ANTIALIAS)
+        resized_image= img.resize((15,30), Image.Resampling.LANCZOS)
         self.marker_icon = ImageTk.PhotoImage(resized_image) 
         
         img = Image.open('./rope/media/stop_marker.png')
-        resized_image= img.resize((15,30), Image.ANTIALIAS)
+        resized_image= img.resize((15,30), Image.Resampling.LANCZOS)
         self.stop_marker_icon = ImageTk.PhotoImage(resized_image) 
         
         class empty:
@@ -1761,7 +1761,7 @@ class GUI(tk.Tk):
 
         # Add Icon
         img = Image.open(self.parameters[icon])
-        resized_image= img.resize((20,20), Image.ANTIALIAS)
+        resized_image= img.resize((20,20), Image.Resampling.LANCZOS)
         self.param_const[icon_holder] = ImageTk.PhotoImage(resized_image)
         
         # Create Button and place
@@ -1851,46 +1851,46 @@ class GUI(tk.Tk):
 
         # Add Icon
         img = Image.open(self.actions[icon])
-        resized_image= img.resize((20,20), Image.ANTIALIAS)
+        resized_image= img.resize((20,20), Image.Resampling.LANCZOS)
         self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
         
         # Create Button and place
         # L-Click function - On/off
         if parameter == 'Dock':
-            resized_image= img.resize((12,30), Image.ANTIALIAS)
+            resized_image= img.resize((12,30), Image.Resampling.LANCZOS)
             self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
             self.actions[button] = tk.Button( root, self.inactive_button_style, compound='left', image=self.actions[icon_holder], anchor='w', command=lambda: self.toggle_dock())
             
         if parameter == 'ImgDock':
-            resized_image= img.resize((12,30), Image.ANTIALIAS)
+            resized_image= img.resize((12,30), Image.Resampling.LANCZOS)
             self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
             self.actions[button] = tk.Button( root, self.inactive_button_style, compound='left', image=self.actions[icon_holder], anchor='w', command=lambda: self.toggle_dock())            
         
         elif parameter == 'SaveImage':   
-            resized_image= img.resize((30,30), Image.ANTIALIAS)
+            resized_image= img.resize((30,30), Image.Resampling.LANCZOS)
             self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
             self.actions[button] = tk.Button( root, self.inactive_button_style, compound='left', image=self.actions[icon_holder], anchor='w', command=lambda: self.save_image())    
         elif parameter == 'AutoSwap':   
-            resized_image= img.resize((30,30), Image.ANTIALIAS)
+            resized_image= img.resize((30,30), Image.Resampling.LANCZOS)
             self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
             self.actions[button] = tk.Button( root, self.inactive_button_style, compound='left', image=self.actions[icon_holder], anchor='w', command=lambda: self.toggle_auto_swap())               
        
         elif parameter == 'Play':
-            resized_image= img.resize((30,30), Image.ANTIALIAS)
+            resized_image= img.resize((30,30), Image.Resampling.LANCZOS)
             self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
             self.actions[button] = tk.Button( root, self.inactive_button_style, compound='left', image=self.actions[icon_holder], anchor='w', command=lambda: self.toggle_play_video())
         
         elif parameter == 'Record':   
-            resized_image= img.resize((30,30), Image.ANTIALIAS)
+            resized_image= img.resize((30,30), Image.Resampling.LANCZOS)
             self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
             self.actions[button] = tk.Button( root, self.inactive_button_style, compound='left', image=self.actions[icon_holder], anchor='w', command=lambda: self.toggle_rec_video())
 
         elif parameter == 'AddMarker':
-            resized_image= img.resize((15,30), Image.ANTIALIAS)
+            resized_image= img.resize((15,30), Image.Resampling.LANCZOS)
             self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
             self.actions[button] = tk.Button( root, self.inactive_button_style, compound='left', image=self.actions[icon_holder], anchor='w', command=lambda: self.add_marker())
         elif parameter == 'RemoveMarker':   
-            resized_image= img.resize((15,30), Image.ANTIALIAS)
+            resized_image= img.resize((15,30), Image.Resampling.LANCZOS)
             self.actions[icon_holder] = ImageTk.PhotoImage(resized_image)
             self.actions[button] = tk.Button( root, self.inactive_button_style, compound='left', image=self.actions[icon_holder], anchor='w', command=lambda: self.remove_marker())
         elif parameter == 'PrevMarker':   
